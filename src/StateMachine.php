@@ -7,7 +7,6 @@ use Ianpsgrant\EnumStateMachine\Transitions;
 
 abstract class StateMachine {
     private array $actions;
-    
     abstract function registerActions(): array;
 
     public function __construct(public mixed $context, public mixed $state) {
@@ -55,6 +54,7 @@ abstract class StateMachine {
     private function performActions(null|string|array $actionNames, ?callable $overrideAction): void {
         if ($overrideAction) {
             $overrideAction();
+            return;
         }
         if (!$actionNames) {
             return;
