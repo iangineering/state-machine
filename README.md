@@ -19,12 +19,17 @@ enum TrafficLightEnum
     #[Transitions(to: self::GREEN, after: "ChangeColor")]
     case RED;
 
-    #[Transitions(from: true, to: true, before: "FixFault", after: "ChangeColor")]
+    #[Transitions(from: true, to: true, before: "FixFault")]
     case FAULT;
 }
 ```
 
-You can register actions that take part in the transition process. These can activate before or after the state-change:
+The `Transitions` attribute determines:
+* What states can be transitioned to
+* What states can be transitioned from
+* What actions to be run before or after the state-change
+
+Your actions are then registered in your state-machine.
 
 ```php
 use Ianpsgrant\EnumStateMachine\StateMachine;
