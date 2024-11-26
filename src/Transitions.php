@@ -6,7 +6,12 @@ namespace Ianpsgrant\EnumStateMachine;
 class Transitions
 {
     
-    public function __construct(private $from = null, private $to = null, public ?string $before = null, public ?string $after = null)
+    public function __construct(
+        private mixed $from = null,
+        private mixed $to = null,
+        public ?string $before = null,
+        public ?string $after = null
+    )
     {
     }
 

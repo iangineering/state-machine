@@ -2,7 +2,6 @@
 
 namespace Ianpsgrant\EnumStateMachine;
 
-use Example\OrderStateEnum;
 use ReflectionAttribute;
 use Ianpsgrant\EnumStateMachine\Transitions;
 

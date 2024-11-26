@@ -6,7 +6,7 @@ use Example\TrafficLight;
 
 class ChangeColorAction {
     public function __construct(TrafficLight $trafficLight) {
-        $trafficLight->emoji = $trafficLight->stateM->state->emoji();
+        $trafficLight->emoji = $trafficLight->state->state->emoji();
         echo $trafficLight->emoji . "\n";
         sleep(1);
     }
