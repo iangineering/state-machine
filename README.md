@@ -1,9 +1,9 @@
 # Enum State Machine
 
-This package adds finite state machine capabilities that are
-[x] Framework agnostic 
-[x] Integrate enums into the state
-[x] Incorporate PHP Attributes for designing your state
+This package adds finite state machine capabilities that
+* Are framework agnostic 
+* Integrate enums into the state
+* Incorporate PHP Attributes for designing your state
 
 ```php
 use Ianpsgrant\EnumStateMachine\Transitions;
