@@ -29,10 +29,12 @@ The `Transitions` attribute determines:
 * What states can be transitioned from
 * What actions to be run before or after the state-change
 
-Your actions are then registered in your state-machine.
+Your actions are then registered in your state-machine:
 
 ```php
 use Ianpsgrant\EnumStateMachine\StateMachine;
+use App\Actions\ChangeColorAction;
+use App\Actions\FixFaultAction;
 
 class TrafficLightState extends StateMachine
 {
