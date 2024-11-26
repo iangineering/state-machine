@@ -1,0 +1,11 @@
+{
+    "name": "ianpsgrant/enum-state-machine",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Ianpsgrant\\EnumStateMachine\\": "src/",
+            "Example\\": "example/"
+        }
+    },
+    "require": {}
+}
