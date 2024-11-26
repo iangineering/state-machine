@@ -6,7 +6,7 @@ This package adds finite state machine capabilities that
 * Incorporate PHP Attributes for designing your state
 
 ```php
-use Ianpsgrant\EnumStateMachine\Transitions;
+use Iangineering\StateMachine\Transitions;
 
 enum TrafficLightEnum
 {
@@ -32,7 +32,7 @@ The `Transitions` attribute determines:
 Your actions are then registered in your state-machine:
 
 ```php
-use Ianpsgrant\EnumStateMachine\StateMachine;
+use Iangineering\StateMachine\StateMachine;
 use App\Actions\ChangeColorAction;
 use App\Actions\FixFaultAction;
 
@@ -52,7 +52,7 @@ class TrafficLightState extends StateMachine
 Add state to your Model or Data-Object by adding a StateMachine variable:
 
 ```php
-use Ianpsgrant\EnumStateMachine\StateMachine;
+use Iangineering\StateMachine\StateMachine;
 
 class TrafficLight
 {

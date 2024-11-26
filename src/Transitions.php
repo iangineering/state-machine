@@ -1,6 +1,6 @@
 <?php
 
-namespace Ianpsgrant\EnumStateMachine;
+namespace Iangineering\StateMachine;
 
 #[\Attribute]
 class Transitions

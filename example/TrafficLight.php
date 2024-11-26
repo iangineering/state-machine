@@ -3,7 +3,7 @@
 namespace Example;
 
 use Example\Actions\ReportFaultAction;
-use Ianpsgrant\EnumStateMachine\StateMachine;
+use Iangineering\StateMachine\StateMachine;
 
 class TrafficLight
 {

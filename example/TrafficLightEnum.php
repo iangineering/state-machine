@@ -2,7 +2,7 @@
 
 namespace Example;
 
-use Ianpsgrant\EnumStateMachine\Transitions;
+use Iangineering\StateMachine\Transitions;
 
 enum TrafficLightEnum
 {

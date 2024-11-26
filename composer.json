@@ -19,7 +19,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Iangineering\\EnumStateMachine\\": "src/",
+            "Iangineering\\StateMachine\\": "src/",
             "Example\\": "example/"
         }
     },

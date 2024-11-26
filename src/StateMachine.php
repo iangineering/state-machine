@@ -1,9 +1,9 @@
 <?php
 
-namespace Ianpsgrant\EnumStateMachine;
+namespace Iangineering\StateMachine;
 
 use ReflectionAttribute;
-use Ianpsgrant\EnumStateMachine\Transitions;
+use Iangineering\StateMachine\Transitions;
 
 abstract class StateMachine {
     private array $actions;

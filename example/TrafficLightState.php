@@ -4,7 +4,7 @@ namespace Example;
 
 use Example\Actions\ChangeColorAction;
 use Example\Actions\FixFaultAction;
-use Ianpsgrant\EnumStateMachine\StateMachine;
+use Iangineering\StateMachine\StateMachine;
 
 class TrafficLightState extends StateMachine
 {
