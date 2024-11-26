@@ -49,9 +49,11 @@ class TrafficLightState extends StateMachine
 }
 ```
 
-Add state to your Model or Data-Object by adding a state variable:
+Add state to your Model or Data-Object by adding a StateMachine variable:
 
 ```php
+use Ianpsgrant\EnumStateMachine\StateMachine;
+
 class TrafficLight
 {
     public StateMachine $state;

@@ -1,11 +1,29 @@
 {
-    "name": "ianpsgrant/enum-state-machine",
+    "name": "iangineering/state-machine",
+    "description": "Framework-agnostic state machine with enums and attributes",
+    "keywords": [
+        "state",
+        "enums",
+        "attributes"
+    ],
+    "homepage": "https://github.com/iangineering/state-machine",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ian Grant",
+            "email": "ianpsgrant@gmail.com",
+            "homepage": "https://github.com/iangineering",
+            "role": "Developer"
+        }
+    ],
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Ianpsgrant\\EnumStateMachine\\": "src/",
+            "Iangineering\\EnumStateMachine\\": "src/",
             "Example\\": "example/"
         }
     },
-    "require": {}
+    "require": {
+        "php": "^8.1"
+    }
 }
