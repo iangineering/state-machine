@@ -15,26 +15,15 @@ abstract class StateMachine {
         $this->actions = $this->registerActions();
     }
 
-    final public function transition(mixed $to, null|callable|array $before = null, null|callable|array $after = null): void {
+    final public function transition(mixed $to, null|callable $before = null, null|callable $after = null): void {
         $transition = $this->getTransition(currentState: $this->state, futureState: $to);
         if (!$transition) {
             throw new \Exception($this->state->name . " does not transition to " . $to->name);
         }
 
-        $beforeAction = $before;
-        if ($beforeAction === null && !empty($this->actions[$transition->before])) {
-            $beforeAction = $this->actions[$transition->before];
-        }
-        $this->performActions($beforeAction);
-
-        // Transition state
+        $this->performActions($transition->before, $before);
         $this->state = $to;
-
-        $afterAction = $after;
-        if ($afterAction === null && !empty($this->actions[$transition->after])) {
-            $afterAction = $this->actions[$transition->after];
-        }
-        $this->performActions($afterAction);
+        $this->performActions($transition->after, $after);
     }
 
     private function getTransition($currentState, $futureState): ?Transitions {
@@ -64,15 +53,23 @@ abstract class StateMachine {
         return null;
     }
 
-    private function performActions(null|callable|array $actions): void {
-        if (!$actions) {
+    private function performActions(null|string|array $actionNames, ?callable $overrideAction): void {
+        if ($overrideAction) {
+            $overrideAction();
+        }
+        if (!$actionNames) {
             return;
         }
-        if (is_callable($actions)) {
-            $actions = [$actions];
+        if (is_string($actionNames)) {
+            $actionNames = [$actionNames];
         }
-        foreach ($actions as $action) {
-            $action();
+
+        foreach ($actionNames as $actionName) {
+            if (!empty($this->actions[$actionName])) {
+                $this->actions[$actionName]();
+            } else {
+                //TODO Emit MissingAction warning
+            }
         }
     }
 
