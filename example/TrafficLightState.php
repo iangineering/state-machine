@@ -10,8 +10,10 @@ class TrafficLightState extends StateMachine
 {
     function registerActions(): array {
         return [
-            "ChangeColor" => fn() => new ChangeColorAction($this->context),
-            "FixFault" => fn() => new FixFaultAction($this->context),
+            "ChangeColor" => 
+                fn() => new ChangeColorAction($this->context),
+            "FixFault" => 
+                fn() => new FixFaultAction($this->context),
         ];
     }
 }

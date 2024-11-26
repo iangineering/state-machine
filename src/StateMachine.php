@@ -68,6 +68,7 @@ abstract class StateMachine {
                 $this->actions[$actionName]();
             } else {
                 //TODO Emit MissingAction warning
+                // trigger_error(string $message, int $error_type = E_USER_WARNING);
             }
         }
     }
