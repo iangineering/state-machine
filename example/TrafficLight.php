@@ -28,12 +28,12 @@ class TrafficLight
                 }
             }
         } catch (\Exception $e) {
-            $this->stateM->transition(TrafficLightEnum::FAULT, after: $this->reportFault($e));
+            $this->stateM->transition(TrafficLightEnum::FAULT, before: $this->reportFault($e));
         }
     }
 
     public function reportFault($e): callable {
-        return fn($e) => new ReportFaultAction($e);
+        return fn() => new ReportFaultAction($this, $e);
     }
 
     public function getStatus(): bool {

@@ -15,30 +15,29 @@ abstract class StateMachine {
         $this->actions = $this->registerActions();
     }
 
-    final public function transition(mixed $to, ?callable $before = null, ?callable $after = null): void {
-
+    final public function transition(mixed $to, null|callable|array $before = null, null|callable|array $after = null): void {
         $transition = $this->getTransition(currentState: $this->state, futureState: $to);
         if (!$transition) {
             throw new \Exception($this->state->name . " does not transition to " . $to->name);
         }
 
-        // Perform 'before' action
-        if ($before) {
-            $before();
-        } else if ($transition->before && $this->actions[$transition->before]) {
-            ($this->actions[$transition->before])();
+        $beforeAction = $before;
+        if ($beforeAction === null && !empty($this->actions[$transition->before])) {
+            $beforeAction = $this->actions[$transition->before];
         }
+        $this->performActions($beforeAction);
+
         // Transition state
         $this->state = $to;
-        // Perform 'after' action
-        if ($after) {
-            $after();
-        } else if ($transition->after && $this->actions[$transition->after]) {
-            ($this->actions[$transition->after])();
+
+        $afterAction = $after;
+        if ($afterAction === null && !empty($this->actions[$transition->after])) {
+            $afterAction = $this->actions[$transition->after];
         }
+        $this->performActions($afterAction);
     }
 
-    function getTransition($currentState, $futureState): ?Transitions {
+    private function getTransition($currentState, $futureState): ?Transitions {
         /** @var ReflectionAttribute[] */
         $currentStateAttributes = (new \ReflectionEnumUnitCase($this->state::class, $currentState->name))->getAttributes(Transitions::class);
 
@@ -64,4 +63,17 @@ abstract class StateMachine {
         }
         return null;
     }
+
+    private function performActions(null|callable|array $actions): void {
+        if (!$actions) {
+            return;
+        }
+        if (is_callable($actions)) {
+            $actions = [$actions];
+        }
+        foreach ($actions as $action) {
+            $action();
+        }
+    }
+
 }

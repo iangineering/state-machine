@@ -14,7 +14,7 @@ enum TrafficLightEnum{
     #[Transitions(to: self::GREEN, after: "ChangeColor")]
     case RED;
 
-    #[Transitions(from: true, to: true, before: "FixFault", after: "ReportFault")]
+    #[Transitions(from: true, to: true, before: "FixFault", after: "ChangeColor")]
     case FAULT;
 
     public function emoji(): string {
