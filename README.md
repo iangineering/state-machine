@@ -78,3 +78,8 @@ while (true) {
     $trafficLight->state->transition(TrafficLightEnum::RED);
 }
 ```
+
+
+todo:
+change transition actions to preAction and postAction/ preTransition and postTransition.
+change 'transitions' to 'transition'
