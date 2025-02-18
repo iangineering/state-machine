@@ -1,4 +1,4 @@
-# Enum State Machine
+# State Machine
 
 This package adds finite state machine capabilities that
 * Are framework agnostic 
